@@ -38,7 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'forwardable', '~> 1.0'
   spec.add_dependency 'logger', '~> 1.0'
   spec.add_dependency 'net-hippie', '~> 1.0'
-  spec.add_dependency 'nokogiri', '~> 1.0'
+  spec.add_dependency 'nokogiri', '~> 1.19', '>= 1.19.1'
   spec.add_dependency 'securerandom', '~> 0.1'
   spec.add_dependency 'uri', '~> 1.0'
   spec.add_dependency 'xml-kit', '~> 0.4'

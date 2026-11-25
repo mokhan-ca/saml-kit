@@ -8,7 +8,7 @@ PATH
       forwardable (~> 1.0)
       logger (~> 1.0)
       net-hippie (~> 1.0)
-      nokogiri (~> 1.0)
+      nokogiri (~> 1.19, >= 1.19.1)
       securerandom (~> 0.1)
       uri (~> 1.0)
       xml-kit (~> 0.4)
