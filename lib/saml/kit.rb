@@ -17,6 +17,7 @@ require 'securerandom'
 require 'uri'
 require 'xml/kit'
 
+require 'saml/kit/concerns/assertable'
 require 'saml/kit/concerns/buildable'
 require 'saml/kit/concerns/requestable'
 require 'saml/kit/concerns/respondable'

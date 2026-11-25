@@ -32,6 +32,8 @@ module Saml
         attribute.text.casecmp('true').zero?
       end
 
+      def identity_provider; end
+
       # @!visibility private
       def self.builder_class
         Saml::Kit::Builders::ServiceProviderMetadata

@@ -591,12 +591,12 @@ RSpec.describe Saml::Kit::Response do
         config.generate_key_pair_for(use: :signing)
       end
     end
-    let(:sp) do
-      Saml::Kit::Metadata.build(configuration: configuration, &:build_service_provider)
+    let(:idp) do
+      Saml::Kit::Metadata.build(configuration: configuration, &:build_identity_provider)
     end
 
     before do
-      allow(configuration.registry).to receive(:metadata_for).with(configuration.entity_id).and_return(sp)
+      allow(configuration.registry).to receive(:metadata_for).with(configuration.entity_id).and_return(idp)
     end
 
     it 'can build a response without a request' do

@@ -6,6 +6,7 @@ module Saml
     # element nested in a Response element
     # of a SAML document.
     class Assertion < Document
+      include Assertable
       extend Forwardable
       XPATH = [
         '/samlp:Response/saml:Assertion',
@@ -28,7 +29,6 @@ module Saml
         @to_nokogiri = node.is_a?(String) ? Parser.parse(node).root : node
         @configuration = configuration
         @occurred_at = Time.current
-        @cannot_decrypt = false
         @encrypted = false
         keys = configuration.private_keys(use: :encryption) + private_keys
         decrypt(::Xml::Kit::Decryption.new(private_keys: keys.uniq))

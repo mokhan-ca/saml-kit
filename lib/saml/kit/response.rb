@@ -6,6 +6,7 @@ module Saml
     # parsing a SAML Response document.
     # {include:file:spec/examples/response_spec.rb}
     class Response < Document
+      include Assertable
       include Respondable
       extend Forwardable
 
