@@ -52,6 +52,12 @@ RSpec.describe Saml::Kit::XmlHash do
       expect(response.signature.to_h).to eql(Hash.from_xml(response.signature.to_xml)['Signature'])
     end
 
+    it 'needs only the runtime dependencies' do
+      script = File.expand_path('../../fixtures/signature_to_h.rb', __dir__)
+      output = Bundler.with_original_env { IO.popen([RbConfig.ruby, script], &:read) }
+      expect(output).to eql('[["AuthnRequest"], ["xmlns", "SignedInfo", "SignatureValue", "KeyInfo"], nil]')
+    end
+
     it 'converts an element that uses a prefix from its parent' do
       xml = <<~XML
         <samlp:Response xmlns:samlp="#{Saml::Kit::Namespaces::PROTOCOL}" xmlns:saml="#{Saml::Kit::Namespaces::ASSERTION}">
