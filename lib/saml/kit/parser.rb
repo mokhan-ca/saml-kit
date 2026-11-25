@@ -7,7 +7,7 @@ module Saml
         document = Nokogiri::XML(content, &:strict)
         raise Nokogiri::XML::SyntaxError, 'DOCTYPE is not allowed' if document.internal_subset
 
-        document
+        document.tap { |x| x.encoding &&= 'UTF-8' }
       rescue Nokogiri::XML::SyntaxError => error
         Saml::Kit.logger.error(error)
         Nokogiri::XML::Document.new

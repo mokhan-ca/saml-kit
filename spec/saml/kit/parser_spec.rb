@@ -17,6 +17,24 @@ RSpec.describe Saml::Kit::Parser do
       expect(described_class.parse(xml).root.name).to eql('AuthnRequest')
     end
 
+    %w[UTF-16 UTF-16BE ISO-8859-1].each do |encoding|
+      it "reads #{encoding} as utf-8" do
+        document = described_class.parse(Nokogiri::XML('<a>é</a>').to_xml(encoding: encoding).b)
+        expect(document.root.to_s).to eql('<a>é</a>')
+      end
+    end
+
+    it 'keeps a document without an encoding' do
+      expect(described_class.parse('<a/>').encoding).to be_nil
+    end
+
+    it 'reads a Response in UTF-16' do
+      xml = Nokogiri::XML(Saml::Kit::Response.build_xml(UserWithoutAttributes.new)).to_xml(encoding: 'UTF-16')
+      response = Saml::Kit::Document.to_saml_document(xml.b)
+      expect(response).to be_invalid
+      expect(response.name_id).to be_present
+    end
+
     ['', nil, 'NOT XML', '<a>', '<a/><b/>', '<a/>b', '<!DOCTYPE a><a/>', '<!DOCTYPE a [<!ENTITY b "c">]><a>&b;</a>'].each do |refused|
       it "returns an empty document for #{refused.inspect}" do
         expect(described_class.parse(refused).root).to be_nil
