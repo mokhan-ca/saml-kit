@@ -105,14 +105,17 @@ module Saml
       end
 
       def decrypt(decryptor)
-        encrypted_assertion = at_xpath('./xmlenc:EncryptedData')
-        @encrypted = encrypted_assertion.present?
-        return unless @encrypted
-
-        @to_nokogiri = decryptor.decrypt_node(encrypted_assertion)
+        encrypted_data = at_xpath('./xmlenc:EncryptedData')
+        @encrypted = encrypted_data.present?
+        @to_nokogiri = decryptor.decrypt_node(copy(encrypted_data)) if encrypted?
       rescue StandardError => error
         @cannot_decrypt = true
         Saml::Kit.logger.error(error)
+      end
+
+      def copy(node)
+        position = node.document.xpath('//*').index(node)
+        node.document.dup.xpath('//*')[position]
       end
 
       def must_match_issuer

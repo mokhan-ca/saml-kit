@@ -68,7 +68,7 @@ module Saml
       end
 
       def must_contain_single_assertion
-        return if assertion_nodes.count <= 1
+        return if assertion_nodes.empty? || assertion.search(Assertion::XPATH).one?
 
         errors.add(:base, error_message(:must_contain_single_assertion))
       end
