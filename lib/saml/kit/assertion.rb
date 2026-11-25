@@ -25,7 +25,7 @@ module Saml
         node, configuration: Saml::Kit.configuration, private_keys: []
       )
         @name = 'Assertion'
-        @to_nokogiri = node.is_a?(String) ? Nokogiri::XML(node).root : node
+        @to_nokogiri = node.is_a?(String) ? Parser.parse(node).root : node
         @configuration = configuration
         @occurred_at = Time.current
         @cannot_decrypt = false

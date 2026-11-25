@@ -419,7 +419,7 @@ RSpec.describe Saml::Kit::Response do
             <ds:SignatureValue></ds:SignatureValue>
             <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
               <ds:X509Data>
-                <ds:X509Certificate>#{certificate}</ds:X509Certificate>
+                <ds:X509Certificate>#{certificate.stripped}</ds:X509Certificate>
               </ds:X509Data>
             </KeyInfo>
           </ds:Signature>

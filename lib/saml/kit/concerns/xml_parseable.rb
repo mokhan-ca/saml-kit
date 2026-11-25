@@ -39,7 +39,7 @@ module Saml
 
       # @!visibility private
       def to_nokogiri
-        @to_nokogiri ||= Nokogiri::XML(to_s)
+        @to_nokogiri ||= Parser.parse(to_s)
       end
 
       # @!visibility private

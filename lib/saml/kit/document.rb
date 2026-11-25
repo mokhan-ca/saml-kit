@@ -77,7 +77,7 @@ module Saml
             saml: Namespaces::ASSERTION,
             samlp: Namespaces::PROTOCOL,
           }
-          element = Nokogiri::XML(xml).at_xpath(XPATH, namespaces)
+          element = Parser.parse(xml).at_xpath(XPATH, namespaces)
           constructor = CONSTRUCTORS[element.name].try(:call) || InvalidDocument
           constructor.new(xml, configuration: configuration)
         rescue StandardError => error
