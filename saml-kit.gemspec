@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'A simple toolkit for working with SAML.'
   spec.description   = 'A simple toolkit for working with SAML.'
-  spec.homepage      = 'https://github.com/xlgmokha/saml-kit'
+  spec.homepage      = 'https://github.com/mokhan-ca/saml-kit'
   spec.license       = 'MIT'
   spec.required_ruby_version = '>= 3.2.0'
 
@@ -24,6 +24,10 @@ Gem::Specification.new do |spec|
     ) && !f.match(%r{^spec/examples.*/})
   end
   spec.metadata['yard.run'] = 'yri'
+  spec.metadata['allowed_push_host'] = 'https://rubygems.org'
+  spec.metadata['changelog_uri'] = "#{spec.homepage}/blob/main/CHANGELOG.md"
+  spec.metadata['rubygems_mfa_required'] = 'true'
+  spec.metadata['source_code_uri'] = spec.homepage
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
