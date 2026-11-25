@@ -30,7 +30,10 @@ module Saml
 
         value = at_xpath('./ds:KeyInfo/ds:X509Data/ds:X509Certificate').try(:text)
         @certificate =
-          value.nil? ? nil : ::Xml::Kit::Certificate.new(value, use: :signing)
+          value.nil? ? nil : ::Xml::Kit::Certificate.new(value, use: :signing).tap(&:active?)
+      rescue StandardError => error
+        Saml::Kit.logger.error(error)
+        @certificate = nil
       end
 
       # Returns true when the fingerprint of the certificate matches one of
