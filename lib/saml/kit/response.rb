@@ -74,7 +74,7 @@ module Saml
         errors.add(:base, error_message(:must_contain_single_assertion))
       end
 
-      # SAML 2.0 Profiles 4.1.4.2, Errata E17
+      # SAML 2.0 Profiles 4.1.4.2, Errata E17 and E26
       def must_match_assertion_issuer
         return unless assertion.decryptable?
         return if issuer == assertion.issuer || issuer_omitted?
