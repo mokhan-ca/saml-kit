@@ -13,6 +13,7 @@ module Saml
 
       validate :must_be_valid_assertion
       validate :must_contain_single_assertion
+      validate :must_match_assertion_issuer
 
       def initialize(
         xml,
@@ -68,6 +69,18 @@ module Saml
         return if assertion_nodes.count <= 1
 
         errors.add(:base, error_message(:must_contain_single_assertion))
+      end
+
+      # SAML 2.0 Profiles 4.1.4.2, Errata E17
+      def must_match_assertion_issuer
+        return unless assertion.decryptable?
+        return if issuer == assertion.issuer || issuer_omitted?
+
+        errors.add(:issuer, error_message(:must_match_assertion_issuer))
+      end
+
+      def issuer_omitted?
+        issuer.nil? && !signed? && !assertion.encrypted?
       end
 
       def assertion_nodes
