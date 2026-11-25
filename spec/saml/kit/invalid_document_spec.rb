@@ -7,6 +7,10 @@ RSpec.describe Saml::Kit::InvalidDocument do
     expect(subject.errors[:base]).to be_present
   end
 
+  it 'has no name id' do
+    expect(described_class.new('NOT XML').name_id).to be_nil
+  end
+
   it 'is invalid with something that not xml' do
     subject = described_class.new('NOT XML')
     expect(subject).to be_invalid

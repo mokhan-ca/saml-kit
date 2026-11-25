@@ -14,6 +14,8 @@ module Saml
         super(xml, name: 'InvalidDocument')
       end
 
+      def name_id; end
+
       def to_h
         super
       rescue StandardError
