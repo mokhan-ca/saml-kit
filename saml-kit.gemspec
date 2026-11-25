@@ -41,7 +41,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'nokogiri', '~> 1.19', '>= 1.19.1'
   spec.add_dependency 'securerandom', '~> 0.1'
   spec.add_dependency 'uri', '~> 1.0'
-  spec.add_dependency 'xml-kit', '~> 0.4'
+  spec.add_dependency 'xml-kit', '~> 0.7'
   spec.add_development_dependency 'bundler-audit', '~> 0.6'
   spec.add_development_dependency 'erb', '~> 4.0'
   spec.add_development_dependency 'ffaker', '~> 2.7'

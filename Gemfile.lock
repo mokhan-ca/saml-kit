@@ -11,7 +11,7 @@ PATH
       nokogiri (~> 1.19, >= 1.19.1)
       securerandom (~> 0.1)
       uri (~> 1.0)
-      xml-kit (~> 0.4)
+      xml-kit (~> 0.7)
 
 GEM
   remote: https://rubygems.org/
@@ -171,10 +171,10 @@ GEM
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    xml-kit (0.6.0)
+    xml-kit (0.7.0)
       activemodel (>= 4.2.0)
       builder (~> 3.2)
-      nokogiri (~> 1.10)
+      nokogiri (~> 1.19, >= 1.19.1)
       tilt (>= 1.4.1)
       xmldsig (~> 0.6)
     xmldsig (0.7.0)
