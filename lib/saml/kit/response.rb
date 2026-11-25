@@ -54,7 +54,9 @@ module Saml
       end
 
       def signature_trusted?
-        super || (assertion.signed? && assertion.trusted?)
+        return super if signed?
+
+        assertion.signed? && assertion.trusted?
       end
 
       def must_be_valid_assertion
