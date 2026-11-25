@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.2](https://github.com/mokhan-ca/saml-kit/compare/v1.5.1...v1.5.2) (2026-11-25)
+
+
+### Bug Fixes
+
+* decrypt a copy of the document ([85d58df](https://github.com/mokhan-ca/saml-kit/commit/85d58df05790895f04cfd9deba84467ba8b20a8b))
+* link the gem to its repository and changelog ([354e379](https://github.com/mokhan-ca/saml-kit/commit/354e379f9337a72e217fb866000578d57cb3c41d))
+* read the name id of a refused document ([ad135e2](https://github.com/mokhan-ca/saml-kit/commit/ad135e2fc4363cdd12fb72e24d6659783f72b117))
+* read to_h from the nokogiri tree ([e09dae7](https://github.com/mokhan-ca/saml-kit/commit/e09dae7bfa43cc417dcf764046cb291cbb66e875))
+* read xml of any encoding as utf-8 ([52bce6b](https://github.com/mokhan-ca/saml-kit/commit/52bce6be2579064c3b483fedb93e668b7e08a83e))
+* report an unreadable certificate as missing ([ab68ac9](https://github.com/mokhan-ca/saml-kit/commit/ab68ac9fd3ccaec67c8ac77ef8de0b27cea08106))
+* require a registered key when a Response is signed ([72f79de](https://github.com/mokhan-ca/saml-kit/commit/72f79de169c14febe07549881a655f46c3acaa9c))
+* require an identity provider to issue a Response ([3a8c0c1](https://github.com/mokhan-ca/saml-kit/commit/3a8c0c126aff30c1a9911e835ca1c6e59d2d38ca))
+* require nokogiri 1.19.1 ([46c101b](https://github.com/mokhan-ca/saml-kit/commit/46c101b40cfcad5e1cfd98a6b2f202a74ba90245))
+* require the same issuer on a Response and its Assertion ([a9236ec](https://github.com/mokhan-ca/saml-kit/commit/a9236ec85430864c3910606ded5b6f10a179cad2))
+* require valid utf-8 in a decrypted Assertion ([a79113a](https://github.com/mokhan-ca/saml-kit/commit/a79113a382a9ba2ed0bd249d0eed2a6ef271d3dc))
+* require well formed xml without a document type ([69aa755](https://github.com/mokhan-ca/saml-kit/commit/69aa7550a6128f769cc4f7882c5631251c77f3e4))
+* require xml-kit 0.7 ([7eb7705](https://github.com/mokhan-ca/saml-kit/commit/7eb77058bf14712b5b9982c7df611c01186c8acf))
+* return both descriptors from CompositeMetadata ([8f4dcdc](https://github.com/mokhan-ca/saml-kit/commit/8f4dcdc1d55e3c458f1403c31cf9e132d57b4041))
+* translate each error of a refused document ([bae0d41](https://github.com/mokhan-ca/saml-kit/commit/bae0d4110950c986d64288aa697e79f8a7893cc6))
+
 ## [1.5.1] - 2026-08-18
 ### Fixed
 - Compile the SAML XSDs without `Dir.chdir`. Schema compilation ran inside a
