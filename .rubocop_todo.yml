@@ -134,7 +134,6 @@ Style/ExplicitBlockArgument:
   Exclude:
     - 'lib/saml/kit/concerns/validatable.rb'
     - 'lib/saml/kit/default_registry.rb'
-    - 'spec/support/ruby_prof.rb'
 
 # Offense count: 4
 # This cop supports unsafe autocorrection (--autocorrect-all).

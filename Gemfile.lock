@@ -150,7 +150,6 @@ GEM
     rubocop-rspec (3.5.0)
       lint_roller (~> 1.1)
       rubocop (~> 1.72, >= 1.72.1)
-    ruby-prof (1.7.1)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
     simplecov (0.22.0)
@@ -203,7 +202,6 @@ DEPENDENCIES
   rspec-benchmark (~> 0.3)
   rubocop (~> 1.0)
   rubocop-rspec (~> 3.0)
-  ruby-prof
   saml-kit!
   simplecov (~> 0.15)
   webmock (~> 3.1)
