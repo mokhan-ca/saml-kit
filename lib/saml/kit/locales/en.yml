@@ -15,16 +15,26 @@ en:
       AuthnRequest:
         invalid: "must contain AuthnRequest."
         invalid_fingerprint: "is not registered."
+        invalid_version: "must be 2.0."
         unregistered: "is unregistered."
       IDPSSODescriptor:
         invalid: "must contain IDPSSODescriptor."
         invalid_signature: "invalid signature."
       InvalidDocument:
         invalid: "must contain valid SAMLRequest"
-      LogoutRequest:
         invalid_fingerprint: "is not registered."
+        invalid_version: "must be 2.0."
+        unregistered: "is unregistered."
+      LogoutRequest:
+        invalid: "must contain LogoutRequest."
+        invalid_fingerprint: "is not registered."
+        invalid_version: "must be 2.0."
         unregistered: "is unregistered."
       LogoutResponse:
+        invalid: "must contain LogoutResponse."
+        invalid_fingerprint: "is not registered."
+        invalid_response_to: "must match request id."
+        invalid_version: "must be 2.0."
         unregistered: "is unregistered."
       NullAssertion:
         invalid: "is missing."
