@@ -80,7 +80,7 @@ module Saml
 
       # Returns the XML Hash.
       def to_h
-        @to_h ||= present? ? Hash.from_xml(to_xml)['Signature'] : {}
+        @to_h ||= present? ? XmlHash.from(node)['Signature'] : {}
       end
 
       def present?

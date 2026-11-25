@@ -16,7 +16,7 @@ module Saml
 
       # Returns the SAML document returned as a Hash.
       def to_h
-        @to_h ||= Hash.from_xml(to_s) || {}
+        @to_h ||= XmlHash.from(at_xpath('descendant-or-self::*'))
       end
 
       # Returns the XML document as a String.
