@@ -107,7 +107,12 @@ module Saml
       def decrypt(decryptor)
         encrypted_data = at_xpath('./xmlenc:EncryptedData')
         @encrypted = encrypted_data.present?
-        @to_nokogiri = decryptor.decrypt_node(copy(encrypted_data)) if encrypted?
+        return unless encrypted?
+
+        node = decryptor.decrypt_node(copy(encrypted_data))
+        raise EncodingError, 'plaintext is not valid UTF-8' unless node.to_s.valid_encoding?
+
+        @to_nokogiri = node
       rescue StandardError => error
         @cannot_decrypt = true
         Saml::Kit.logger.error(error)
